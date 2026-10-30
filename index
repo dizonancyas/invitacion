@@ -1,0 +1,107 @@
+<html lang="es"><head><style>
+@font-face {
+  font-family: "Optimistic";
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("/fonts/OptimisticAI_VF_Optimized.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Optimistic Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/OptimisticMono_W_TextRegular.woff2") format("woff2");
+}
+:where(html) {
+  font-family: "Optimistic", system-ui, sans-serif;
+}
+:where(code, pre, kbd, samp) {
+  font-family: "Optimistic Mono", ui-monospace, monospace;
+}
+</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bat Mitzvah Sharit Vicuña Espinoza</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:linear-gradient(180deg,#dbeafe 0%,#ffffff 100%);font-family:serif;overflow-x:hidden}
+.envelope{position:fixed;top:0;left:0;width:100%;height:100vh;background:linear-gradient(135deg,#1e3a8a,#1e40af);z-index:1000;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:transform 1s ease-in-out}
+.envelope.open{transform:translateY(-100%)}
+.envelope .seal{width:120px;height:120px;background:radial-gradient(circle,#fbbf24,#d97706);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:60px;box-shadow:0 0 30px gold;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
+.envelope h1{color:white;margin-top:20px;font-size:28px;text-align:center}
+.wrap{position:relative;max-width:500px;margin:0 auto;background:white;box-shadow:0 10px 40px rgba(0,0,0,0.3)}
+.wrap img{width:100%;display:block}
+.hotspot{position:absolute;z-index:50;display:block;cursor:pointer;background:transparent;border:2px solid transparent;border-radius:20px;text-indent:-9999px;transition:all 0.3s}
+.hotspot-mapa{top:43%;left:31%;width:38%;height:3%}
+.hotspot-mapa:hover{background:rgba(255,215,0,0.2);border-color:gold;box-shadow:0 0 20px gold}
+.hotspot-num{top:60%;left:21%;width:61%;height:3.5%}
+.hotspot-wa{top:64%;left:21.5%;width:57%;height:4.5%}
+.hotspot-num:hover,.hotspot-wa:hover{background:rgba(37,211,102,0.15);border-color:#25D366;box-shadow:0 0 20px #25D366}
+#particles{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:5}
+.countdown{background:linear-gradient(135deg,#1e3a8a,#3b82f6);color:white;padding:25px;text-align:center}
+.countdown h2{font-size:22px;margin-bottom:15px;color:#fbbf24}
+.boxes{display:flex;justify-content:center;gap:10px}
+.box{background:rgba(255,255,255,0.15);border:1px solid gold;border-radius:12px;padding:10px 12px;min-width:70px}
+.box span{display:block;font-size:28px;font-weight:bold;color:#fbbf24}
+.box small{font-size:12px}
+.music{position:fixed;bottom:20px;right:20px;width:55px;height:55px;background:linear-gradient(135deg,#1e3a8a,gold);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:100;box-shadow:0 4px 15px rgba(0,0,0,0.3);font-size:24px;animation:musicPulse 2s infinite}
+@keyframes musicPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
+</style>
+</head>
+<body>
+
+<div class="envelope open" id="envelope" onclick="openEnv()">
+<div class="seal">✡️</div>
+<h1>Mi Bat Mitzva<br>Sharit Vicuña Espinoza</h1>
+<p style="color:#fbbf24;margin-top:10px">Toca para abrir</p>
+</div>
+
+<div class="wrap" id="invitacion">
+<canvas id="particles" width="440" height="52"></canvas>
+<img src="invitacion.jpg" alt="Invitación Bat Mitzvah Sharit">
+<a href="https://www.google.com/maps/search/?api=1&amp;query=Salon+Social+Lux+San+Matias+Tlalancaleca+Puebla" target="_blank" class="hotspot hotspot-mapa">Ver Ubicación</a>
+<a href="https://wa.me/522481015676?text=Hola!%20Quiero%20confirmar%20nuestra%20asistencia%20a%20la%20Bat%20Mitzvah%20de%20Sharit%20Vicu%C3%B1a%20Espinoza" target="_blank" class="hotspot hotspot-num">2481015676</a>
+<a href="https://wa.me/522481015676?text=Hola!%20Quiero%20confirmar%20nuestra%20asistencia%20a%20la%20Bat%20Mitzvah%20de%20Sharit%20Vicu%C3%B1a%20Espinoza" target="_blank" class="hotspot hotspot-wa">WhatsApp</a>
+</div>
+
+<div class="countdown">
+<h2>Faltan para la Bat Mitzvah:</h2>
+<div class="boxes">
+<div class="box"><span id="d">92</span><small>Días</small></div>
+<div class="box"><span id="h">20</span><small>Horas</small></div>
+<div class="box"><span id="m">44</span><small>Min</small></div>
+<div class="box"><span id="s">06</span><small>Seg</small></div>
+</div>
+</div>
+
+<div class="music" id="musicBtn" onclick="toggleMusic()">🎵</div>
+<audio id="audio" loop="" src="Siman_Tov_Mazel_Tov.mp3"></audio>
+
+<script>
+// Sobre auto
+setTimeout(()=>openEnv(),1500);
+function openEnv(){document.getElementById('envelope').classList.add('open');playMusic()}
+// Musica
+let playing=false;
+function playMusic(){let a=document.getElementById('audio');a.volume=0.6;a.play().catch(()=>{});playing=true}
+function toggleMusic(){let a=document.getElementById('audio');if(playing){a.pause();playing=false}else{a.play();playing=true}}
+document.addEventListener('click',()=>{if(!playing)playMusic()},{once:true});
+// Conteo
+let target=new Date('2026-01-30T18:00:00-06:00');if(target<Date.now())target=new Date('2027-01-30T18:00:00-06:00');
+setInterval(()=>{
+let diff=target-Date.now();if(diff<0)diff=0;
+let d=Math.floor(diff/86400000);let h=Math.floor(diff%86400000/3600000);let m=Math.floor(diff%3600000/60000);let s=Math.floor(diff%60000/1000);
+document.getElementById('d').textContent=String(d).padStart(2,'0');document.getElementById('h').textContent=String(h).padStart(2,'0');document.getElementById('m').textContent=String(m).padStart(2,'0');document.getElementById('s').textContent=String(s).padStart(2,'0');
+},1000);
+// Particulas azules
+let canvas=document.getElementById('particles');let ctx=canvas.getContext('2d');let particles=[];
+function resize(){canvas.width=canvas.parentElement.offsetWidth;canvas.height=canvas.parentElement.offsetHeight}
+resize();window.addEventListener('resize',resize);
+for(let i=0;i<120;i++){particles.push({x:Math.random()*500,y:Math.random()*1500,r:Math.random()*3+1,s:Math.random()*0.8+0.2,c:Math.random()>0.5?'#fbbf24':'#60a5fa',a:Math.random()})}
+function anim(){ctx.clearRect(0,0,canvas.width,canvas.height);particles.forEach(p=>{p.y-=p.s;p.a+=0.02;if(p.y<0)p.y=canvas.height;ctx.globalAlpha=0.5+Math.sin(p.a)*0.5;ctx.fillStyle=p.c;ctx.shadowBlur=10;ctx.shadowColor=p.c;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fill()});requestAnimationFrame(anim)}anim();
+</script>
+<script>(function(){var loc=location.href.replace(/#.$/,"");var ATTR_NAMES=["data-product-id","data-productid","data-product_id","product-id","productid","product_id","data-source-entity-id","source-entity-id","source_entity_id","data-product","data-metadata","data-meta"];var DATASET_KEYS=["productId","productid","product_id","sourceEntityId","sourceentityid","source_entity_id","product","metadata","meta"];function readProductId(value){if(typeof value!=="string"||value.length===0)return null;if(/^[0-9]{6,}$/.test(value))return value;var match=value.match(/(?:product(?:|-)?id|source(?:|-)?entity(?:_|-)?id)["'=:\s]+([0-9]{6,})/i);return match?match[1]:null}function extractProductId(start){for(var node=start;node&&node!==document.body;node=node.parentElement){for(var i=0;i<ATTR_NAMES.length;i++){var attrValue=node.getAttribute&&node.getAttribute(ATTR_NAMES[i]);var attrProductId=readProductId(attrValue);if(attrProductId)return attrProductId}var dataset=node.dataset||null;if(dataset){for(var j=0;j<DATASET_KEYS.length;j++){var dataValue=dataset[DATASET_KEYS[j]];var dataProductId=readProductId(dataValue);if(dataProductId)return dataProductId}}}return null}function isInlineMediaSlotElement(node){return !!(node&&node.getAttribute&&node.getAttribute("data-clippy-inline-media-slot")!==null)}function findInlineMediaSlot(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(isInlineMediaSlotElement(node))return node}return null}function readInlineMediaUrl(node){if(!node)return null;return node.getAttribute&&((node.getAttribute("data-clippy-inline-media-url")||node.getAttribute("data-url")||node.getAttribute("data_url")))||node.href||null}function stripHash(url){return String(url).replace(/#.$/,"")}function urlsMatch(a,b){if(!a||!b)return false;try{return stripHash(new URL(a,loc).href)===stripHash(new URL(b,loc).href)}catch(_){return stripHash(a)===stripHash(b)}}function isFirstPartyReelUrl(value){try{var url=new URL(value,loc);if(url.protocol!=="https:")return false;var host=url.hostname.toLowerCase();var supported=host==="instagram.com"||host.endsWith(".instagram.com")||host==="facebook.com"||host.endsWith(".facebook.com");return supported&&/\/reels?\//i.test(url.pathname)}catch(_){return false}}function isInlineMediaUrlClick(node,href){var slot=findInlineMediaSlot(node);if(!slot)return false;var slotUrl=readInlineMediaUrl(slot);if(slotUrl)return urlsMatch(href,slotUrl);return isFirstPartyReelUrl(href)}function findDataHref(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(node.getAttribute){var href=node.getAttribute("data-href")||node.getAttribute("data-url");if(href)return{href:href,node:node}}}return null}var nativeOpen=window.open;window.open=function(url){if(parent!==window&&typeof url==="string"&&/^https?:\/\//.test(url)){parent.postMessage({type:"ecto:usercontent-link-click",href:url},"");return null}return nativeOpen?nativeOpen.apply(window,arguments):null};document.addEventListener("click",function(e){var target=e.target instanceof Element?e.target:null;if(!target)return;if(parent===window)return;var a=target.closest?target.closest("a[href]"):null;if(a&&a.href&&/^https?:\/\//.test(a.href)&&a.href.replace(/#.$/,"")!==loc){if(isInlineMediaUrlClick(a,a.href))return;var productId=extractProductId(target)||extractProductId(a);if(productId){e.preventDefault();parent.postMessage({type:"ecto-artifact-link-click",productId:productId},"");return}e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:a.href},"");return}var dataHref=findDataHref(target);if(dataHref&&/^https?:\/\//.test(dataHref.href)&&dataHref.href.replace(/#.$/,"")!==loc){if(isInlineMediaUrlClick(dataHref.node,dataHref.href))return;e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:dataHref.href},"")}},true)})();</script><script>(function(){var FOCUS_TYPE="ecto:artifact-focus-request";var CLOSE_TYPE="ecto:artifact-close-request";function focusArtifactDocument(){var body=document.body;if(!body)return;try{window.focus();}catch(e){}if(!body.hasAttribute("tabindex"))body.setAttribute("tabindex","-1");try{body.focus({preventScroll:true});}catch(e){try{body.focus();}catch(e2){}}}window.addEventListener("message",function(event){if(event.source!==window.parent)return;var data=event.data;if(!data||typeof data!=="object"||data.type!==FOCUS_TYPE)return;if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",focusArtifactDocument,{once:true});return;}focusArtifactDocument();});window.addEventListener("keydown",function(event){if(event.key!=="Escape")return;window.setTimeout(function(){if(event.defaultPrevented)return;window.parent.postMessage({type:CLOSE_TYPE},"*");},0);});})();</script>
+
+</body></html>
